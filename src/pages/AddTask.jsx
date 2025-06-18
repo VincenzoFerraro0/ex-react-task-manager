@@ -27,6 +27,8 @@ export default function AddTask() {
     const hendleSubmit = async (e) => {
         e.preventDefault();
 
+        console.log(addTask)
+
         // Se c'è un errore nel titolo, interrompe l'invio
         if (taskTitleError) return;
 
