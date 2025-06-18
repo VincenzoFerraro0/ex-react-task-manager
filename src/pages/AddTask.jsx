@@ -1,9 +1,12 @@
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useContext } from "react";
+import { GlobalContext } from "../context/GlobalContext";
 
 // Simboli non ammessi nel titolo del task
 const symbols = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~";
 
 export default function AddTask() {
+
+    const { addTask } = useContext(GlobalContext);
     // Stato per il titolo del task (input controllato)
     const [taskTitle, setTaskTitle] = useState("");
 
@@ -21,7 +24,7 @@ export default function AddTask() {
     }, [taskTitle]);
 
     // Gestione dell'invio del form
-    const hendleSubmit = (e) => {
+    const hendleSubmit = async (e) => {
         e.preventDefault();
 
         // Se c'è un errore nel titolo, interrompe l'invio
@@ -34,13 +37,19 @@ export default function AddTask() {
             status: statusRef.current.value
         };
 
-        // Stampa a console per debugging
-        console.log(newTask);
+        try {
+            await addTask(newTask);
+            alert("task creata con successo")
 
-        // Reset del form 
-        setTaskTitle("");
-        descriptionRef.current.value = "";
-        statusRef.current.value = "To do";
+            // Reset del form 
+            setTaskTitle("");
+            descriptionRef.current.value = "";
+            statusRef.current.value = "To do";
+        } catch (error) {
+            alert(error.message)
+        }
+
+
     };
 
     return (
@@ -49,7 +58,7 @@ export default function AddTask() {
 
             {/* Form di inserimento task */}
             <form onSubmit={hendleSubmit} className="form">
-                
+
                 {/* Campo titolo - input controllato */}
                 <label>
                     Nome:
