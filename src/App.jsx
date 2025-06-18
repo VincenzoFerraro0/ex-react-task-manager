@@ -2,8 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import { Link, NavLink } from "react-router-dom";
 import TaskList from "./pages/TaskList";
 import AddTask from "./pages/AddTask";
-export default function App() {
 
+
+
+export default function App() {
   return (
     <>
       <nav className="">
