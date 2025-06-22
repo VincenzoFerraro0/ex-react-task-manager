@@ -15,7 +15,7 @@ export default function TaskList() {
     const { tasks } = useContext(GlobalContext);
 
     // Mostra i task nella console per debug (utile in fase di sviluppo)
-    console.log(tasks);
+    // console.log(tasks);
 
     return (
         <>

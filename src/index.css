@@ -127,3 +127,40 @@ nav .active {
   color: red;
   font-size: 0.9rem;
 }
+
+/* TASK DETAIL */
+.taskCard {
+  background: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.taskCard p {
+  margin-bottom: 1rem;
+}
+
+.taskCard strong {
+  text-transform: capitalize;
+  display: inline-block;
+  width: 140px;
+}
+
+.taskCard button {
+  padding: 0.6rem 1.2rem;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.taskCard button:hover {
+  background-color: #dc2626;
+}

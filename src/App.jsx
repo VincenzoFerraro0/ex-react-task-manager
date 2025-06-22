@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Link, NavLink } from "react-router-dom";
 import TaskList from "./pages/TaskList";
 import AddTask from "./pages/AddTask";
+import TaskDetail from "./pages/TaskDetail";
 
 
 
@@ -23,6 +24,7 @@ export default function App() {
       <Routes>
         <Route path="/" Component={TaskList} />
         <Route path="/add" Component={AddTask} />
+        <Route path="/task/:id" Component={TaskDetail} />
       </Routes>
     </>
   )
