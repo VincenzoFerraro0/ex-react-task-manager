@@ -40,37 +40,41 @@ nav .active {
 
 /* Task list and add form */
 .task-container {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 80%;
   margin: 2rem auto;
+}
+
+.task-container input{
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 
 /** TABLE */
 .task-table {
-    width: 80%;
-    border-collapse: collapse;
-    margin: 2rem auto;
-    font-family: sans-serif;
-    padding: 3rem;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem auto;
+  font-family: sans-serif;
+  padding: 3rem;
 }
 
 .task-table caption {
-    caption-side: top;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+  caption-side: top;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
 .task-table th,
 .task-table td {
-    border: 1px solid #ccc;
-    padding: 12px;
-    text-align: left;
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
 }
-.task-table th{
+
+.task-table th {
   background-color: #e8e8e8;
   color: black;
 }
@@ -83,17 +87,19 @@ nav .active {
 
 
 .task-table thead {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 /* status */
-.todo{
+.todo {
   background-color: rgb(255, 0, 0);
 }
-.doing{
+
+.doing {
   background-color: rgb(255, 255, 0);
 }
-.done{
+
+.done {
   background-color: rgb(0, 255, 0);
 }
 
@@ -152,9 +158,10 @@ button:hover:not(:disabled) {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  
+
 }
-.taskCard h1{
+
+.taskCard h1 {
   align-self: center;
 }
 
@@ -168,7 +175,7 @@ button:hover:not(:disabled) {
   width: 200px;
 }
 
-.box-buttons{
+.box-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,7 +191,7 @@ button:hover:not(:disabled) {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease;
- 
+
 }
 
 .taskCard button:hover {
@@ -199,11 +206,13 @@ button:hover:not(:disabled) {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* sfondo scuro trasparente */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* sfondo scuro trasparente */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* sopra tutto */
+  z-index: 1000;
+  /* sopra tutto */
 }
 
 /* Contenitore della modale */
@@ -260,6 +269,7 @@ button:hover:not(:disabled) {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
