@@ -4,7 +4,6 @@ export default function Modal({title, content, show, onClose, onConfirm, confirm
 
     if(!show) return null
     
-    
     return createPortal(
        <div className="modal-overlay">
         <div className="modal">

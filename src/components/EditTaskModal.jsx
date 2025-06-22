@@ -1,34 +1,45 @@
+// Importa il componente Modal e gli hook necessari
 import Modal from "./Modal"
 import { useState, useRef } from "react"
 
-export default function EditTaskModal({show, onClose, task, onSave}) {
+export default function EditTaskModal({ show, onClose, task, onSave }) {
+    // Stato per gestire la versione modificata della task
     const [editedTask, setEditedTask] = useState(task);
 
-    const editFormRef = useRef()
+    // Ref per accedere direttamente al form e inviarlo da fuori
+    const editFormRef = useRef();
 
-    const changeEditedTask = (key, event) =>{
-        setEditedTask(prev => ({...prev, [key]: event.target.value}));
-    }
+    // Funzione per aggiornare un campo specifico della task modificata
+    const changeEditedTask = (key, event) => {
+        setEditedTask(prev => ({ ...prev, [key]: event.target.value }));
+    };
 
+    // Gestisce l'invio del form, bloccando il comportamento di default e chiamando la funzione onSave
     const hendleSubmit = e => {
         e.preventDefault();
-        onSave(editedTask)
-    }
+        onSave(editedTask);
+    };
 
-    const {title, description, status} = editedTask;
+    // Estrae i campi principali della task modificata
+    const { title, description, status } = editedTask;
+
     return (
-        <Modal 
+        // Rende il modale di modifica con il form al suo interno
+        <Modal
             title="Modifica Task"
             content={
                 <form ref={editFormRef} onSubmit={hendleSubmit}>
+                    {/* Campo per modificare il nome della task */}
                     <label>
-                        Nome Task: 
+                        Nome Task:
                         <input
                             type="text"
                             value={title}
                             onChange={e => changeEditedTask('title', e)}
                         />
                     </label>
+
+                    {/* Campo per modificare la descrizione della task */}
                     <label>
                         Descrizione:
                         <textarea
@@ -36,6 +47,8 @@ export default function EditTaskModal({show, onClose, task, onSave}) {
                             onChange={e => changeEditedTask('description', e)}
                         />
                     </label>
+
+                    {/* Campo per modificare lo stato della task */}
                     <label>
                         Stato:
                         <select
@@ -51,10 +64,10 @@ export default function EditTaskModal({show, onClose, task, onSave}) {
                     </label>
                 </form>
             }
-            confirmText="Salva"
-            show={show}
-            onClose={onClose}
-            onConfirm={() => editFormRef.current.requestSubmit()}
+            confirmText="Salva"               // Testo del pulsante di conferma
+            show={show}                        // Mostra o nasconde il modale
+            onClose={onClose}                  // Funzione chiamata alla chiusura
+            onConfirm={() => editFormRef.current.requestSubmit()}  // Invia il form manualmente
         />
     )
 }

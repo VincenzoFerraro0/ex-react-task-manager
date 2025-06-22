@@ -59,7 +59,7 @@ export default function AddTask() {
             <h3>Qui puoi aggiungere una task</h3>
 
             {/* Form di inserimento task */}
-            <form onSubmit={hendleSubmit} className="form">
+            <form onSubmit={hendleSubmit}>
 
                 {/* Campo titolo - input controllato */}
                 <label>
@@ -82,7 +82,6 @@ export default function AddTask() {
                     <textarea
                         placeholder="Breve descrizione"
                         ref={descriptionRef}
-                        className="input"
                     />
                 </label>
 
@@ -92,7 +91,6 @@ export default function AddTask() {
                     <select
                         ref={statusRef}
                         defaultValue={"To do"}
-                        className="input"
                     >
                         <option value="To do">To do</option>
                         <option value="Doing">Doing</option>
@@ -101,7 +99,7 @@ export default function AddTask() {
                 </label>
 
                 {/* Bottone di invio disabilitato in caso di errore */}
-                <button type="submit" disabled={taskTitleError} className="button">
+                <button type="submit" disabled={taskTitleError}>
                     Aggiungi Task
                 </button>
             </form>
